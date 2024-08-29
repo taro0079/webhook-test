@@ -1,5 +1,9 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
+    webhook:
+        routing:
+            line:
+                service: App\Webhook\SampleParser
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
 
