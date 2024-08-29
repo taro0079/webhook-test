@@ -8,14 +8,14 @@ class LineMessageEvent extends Event
 {
 
     public function __construct(
-        private array $payload
+        private array $event
     )
     {
     }
 
-    public function getPayload(): array
+    public function getEvent(): array
     {
-        return $this->payload;
+        return $this->event;
     }
 
 

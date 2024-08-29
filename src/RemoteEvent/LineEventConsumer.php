@@ -29,7 +29,7 @@ class LineEventConsumer implements ConsumerInterface
         $eventClasses = [];
         foreach ($events as $event) {
             if ($event['type'] === 'message') {
-                $eventClasses[] = new LineMessageEvent($payload);
+                $eventClasses[] = new LineMessageEvent($event);
             }
         }
 
