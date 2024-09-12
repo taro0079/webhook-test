@@ -4,6 +4,8 @@ framework:
         routing:
             line:
                 service: App\Webhook\SampleParser
+            line/callback:
+                service: App\Webhook\LoginParser
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
 

@@ -5,8 +5,8 @@ namespace App\EventListener;
 use App\Entity\Customer;
 use App\Entity\LineCustomer;
 use App\Event\LineMessageEvent;
-use App\Repository\CustomerRepository;
 use App\Repository\CustomerRepositoryInterface;
+use App\Services\LineConfig;
 use App\Services\LineService;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -17,7 +17,8 @@ class LineEventListener
     public function __construct(
         private LoggerInterface $logger,
         private LineService $lineService,
-        private CustomerRepositoryInterface $customerRepository
+        private CustomerRepositoryInterface $customerRepository,
+        private LineConfig $lineConfig
     ) {
     }
 
@@ -35,8 +36,8 @@ class LineEventListener
         $this->logger->info(json_encode($event->getEvent()));
 
 
-        $this->lineService->sendMessage('webhookのテストです。', $replyToken);
+        // $this->lineService->sendMessage('webhookのテストです。', $replyToken);
+        $this->lineService->sendMessage($this->lineConfig->getAuthorizationUrl(), $replyToken);
 
     }
 }
-

@@ -18,8 +18,7 @@ class LineService
         private ClientInterface $httpClient,
         private Configuration $config,
         private LoggerInterface $logger
-    )
-    {
+    ) {
         $this->messagingApi = new MessagingApiApi(
             client: $this->httpClient,
             config: $this->config
@@ -39,3 +38,4 @@ class LineService
 
 
 }
+
