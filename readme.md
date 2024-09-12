@@ -1,0 +1,4 @@
+# 開発時にやること
+- ngrokで公開されたURLをline messeging APIのWebhook URLに設定する
+- ngrokで公開されたURLをもとにlineログインのcallbackURLに設定する
+- ngrokで公開されたURLをもとにservices.yamlのcallbackURLに設定する
